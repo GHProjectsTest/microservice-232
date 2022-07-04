@@ -135,6 +135,59 @@ public class Mensa extends RESTService {
     return null;
   }
 
+  /**
+   * 
+   * param
+   *
+   * 
+   * @param {id}  a String
+   * 
+   * @return Response 
+   * 
+   */
+  @GET
+  @Path("/param/{id}")
+  @Produces(MediaType.APPLICATION_JSON)
+  @Consumes(MediaType.TEXT_PLAIN)
+  @ApiResponses(value = {
+       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "ok"),
+       @ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "nf")
+  })
+  @ApiOperation(value = "param", notes = " ")
+  public Response param(@PathParam("{id}") String {id}) {
+
+
+
+
+     
+    // service method invocations
+
+     
+
+
+
+
+    // ok
+    boolean ok_condition = true;
+    if(ok_condition) {
+      JSONObject ok = new JSONObject();
+
+      
+
+      return Response.status(HttpURLConnection.HTTP_OK).entity(ok.toJSONString()).build();
+    }
+    // nf
+    boolean nf_condition = true;
+    if(nf_condition) {
+      JSONObject nf = new JSONObject();
+
+      
+
+      return Response.status(HttpURLConnection.HTTP_NOT_FOUND).entity(nf.toJSONString()).build();
+    }
+    return null;
+  }
+
 
 
   }
