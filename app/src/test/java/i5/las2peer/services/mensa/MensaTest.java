@@ -116,6 +116,32 @@ public class MensaTest {
   }
 
 
+  /**
+   * 
+   * Test for the SimpleGETdishestest_ID502152 method.
+   * 
+   */
+  @Test
+  public void testSimpleGETdishestest_ID502152() {
+    MiniClientCoverage c = new MiniClientCoverage(mainPath);
+    c.setConnectorEndpoint(connector.getHttpEndpoint());
+    
+        
+    try {
+      c.setLogin(AnonymousAgentImpl.IDENTIFIER, "");
+      ClientResponse result = c.sendRequest("GET", "/dishes", """
+""", "text/plain", "*/*", new HashMap<>(), new Object[0]);
+      System.out.println("Result of request with id: 513746: " + result.getResponse().trim());
+    
+      Assert.assertEquals("[315540]", 200, result.getHttpCode());
+
+    } catch (Exception e) {
+      e.printStackTrace();
+      fail("Exception: " + e);
+    }
+
+    
+  }
 
 
 
