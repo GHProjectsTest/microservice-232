@@ -142,6 +142,32 @@ public class MensaTest {
 
     
   }
+  /**
+   * 
+   * Test for the GETparamidnotfoundtest_ID943989 method.
+   * 
+   */
+  @Test
+  public void testGETparamidnotfoundtest_ID943989() {
+    MiniClientCoverage c = new MiniClientCoverage(mainPath);
+    c.setConnectorEndpoint(connector.getHttpEndpoint());
+    
+        
+    try {
+      c.setLogin(AnonymousAgentImpl.IDENTIFIER, "");
+      ClientResponse result = c.sendRequest("GET", "/param/{id}", """
+""", "text/plain", "*/*", new HashMap<>(), "5");
+      System.out.println("Result of request with id: 844238: " + result.getResponse().trim());
+    
+      Assert.assertEquals("[459934]", 404, result.getHttpCode());
+
+    } catch (Exception e) {
+      e.printStackTrace();
+      fail("Exception: " + e);
+    }
+
+    
+  }
 
 
 
